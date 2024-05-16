@@ -1,77 +1,130 @@
 var CreatePostView = Backbone.View.extend({
   el: "#create-post-container",
   template: _.template(`
-      <div class="new-post-form">
-        <h5>Create a New Post</h5>
-        <form id="new-post-form">
-          <input type="file" name="imageFile" accept="image/*" required>
-          <label for="imageFile">Choose Image</label>
-          <textarea name="caption" placeholder="Write a caption..." required></textarea>
-          <button type="submit">Create Post</button>
-        </form>
-      </div>
-    `),
+  <form id="new-post-form">
+      <input type="text" name="image" placeholder="Enter image URL" required>
+      <textarea name="caption" placeholder="Write a caption..." required></textarea>
+      <button type="submit">Create Post</button>
+    </form>
+`),
 
   events: {
+    //"click #create-post-button": "showPopup",
+    //"submit #new-post-form": "createPost",
+    //"click .popup-content": "stopPropagation",
+    //"click #post-popup": "hidePopup",
     "submit #new-post-form": "createPost",
   },
 
   initialize: function () {
     this.render();
   },
+  /*
+  showPopup: function (event) {
+    event.preventDefault();
+    this.$el.find("#post-popup").removeClass("hidden");
+  },
 
+  stopPropagation: function (event) {
+    event.stopPropagation();
+  },
+*/
   createPost: function (event) {
     event.preventDefault();
 
     var formData = new FormData(this.$el.find("#new-post-form")[0]);
 
     var caption = formData.get("caption");
-    var imageFile = formData.get("imageFile");
+    var imageFile = formData.get("image");
 
-    if (!caption || !imageFile) {
+    var userId = localStorage.getItem("userId");
+    var userName = localStorage.getItem("userName");
+
+    var data = {
+      caption: caption,
+      image: imageFile,
+      userID: userId,
+      userName: userName,
+    };
+
+    console.log("Creating post with data:", data);
+
+    if (!caption || !imageFile || !userId || !userName) {
       return;
     }
 
     var self = this;
     $.ajax({
-      url: "http://localhost:8000/api/upload",
+      url: "http://localhost:8000/api/create",
+      contentType: "application/json", // Optional if the server expects JSON
       type: "POST",
-      data: formData,
-      contentType: false,
-      processData: false,
+      data: JSON.stringify(data), // Optional if sending data as JSON
       success: function (response) {
         var newPost = new PostModel({
-          username: "Current User", // Replace with actual username
+          id: response.PostID,
+          username: response.UserName, // Replace with actual username
           caption: caption,
-          imageUrl: response.imageUrl,
+          imageUrl: response.Image || "",
           likesCount: 0,
           comments: [],
         });
 
-        newPost.save(null, {
-          success: function (model, response) {
-            console.log("Post created successfully:", response);
-            postsView.collection.add(newPost);
-            postsView.render();
-          },
-          error: function (model, xhr, error) {
-            console.error("Error creating post:", error);
-          },
-        });
+        postsView.collection.add(newPost);
+        postsView.render();
+        //self.hidePopup();
+
+        //clear the form fields
+        self.$el.find("#new-post-form input[type='file']").val("");
+        self.$el.find("#new-post-form textarea").val("");
       },
       error: function (xhr, status, error) {
         console.error("Error uploading image:", error);
       },
     });
+    //this.hidePopup();
 
-    this.$el.find("#new-post-form input[type='file']").val("");
-    this.$el.find("#new-post-form textarea").val("");
+    //this.$el.find("#new-post-form input[type='file']").val("");
+    //this.$el.find("#new-post-form textarea").val("");
   },
-
+  /*
+  hidePopup: function (event) {
+    event.preventDefault();
+    this.$el.find("#post-popup").addClass("hidden");
+  },
+*/
   render: function () {
     this.$el.html(this.template());
     return this;
   },
 });
 
+/*
+// CSS to hide the popup initially and style it
+const styles = `
+  .hidden {
+    display: none;
+  }
+  .post-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+  }
+`;
+
+var styleSheet = document.createElement("style");
+styleSheet.setAttribute("type", "text/css");
+styleSheet.innerText = styles;
+document.head.appendChild(styleSheet);
+*/
 var createPostView = new CreatePostView();
