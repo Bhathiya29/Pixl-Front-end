@@ -9,8 +9,9 @@ $(function () {
   postsCollection.fetchPosts(); // Fetch all posts
 
   // Create and render the PostListView instance (replace with appropriate logic)
-  var postsView = new PostView({ el: "#posts", collection: postsCollection });
-  postsView.render(); // Render all posts in the collection
+  //var postsView = new PostView({ el: "#posts", collection: postsCollection });
+  //postsView.render(); // Render all posts in the collection
 
   var coursesView = new CoursesView();
+  //var postView = new PostView();
 });

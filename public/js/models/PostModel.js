@@ -1,22 +1,25 @@
 var PostModel = Backbone.Model.extend({
   defaults: {
-    username: "",
-    caption: "",
-    imageUrl: "",
-    likesCount: 0,
-    comments: [], // Array of CommentModel objects
+    PostID: "",
+    UserID: "",
+    UserName: "",
+    Caption: "",
+    Image: "",
+    Date: "",
+    Likes: 0,
+    Comments: [], // Array of CommentModel objects
   },
 
-  // Override to handle potential server response variations
   parse: function (response) {
     return {
+      id: response.PostID,
       username: response.UserName,
       caption: response.Caption,
-      image: response.Image,
+      imageUrl: response.Image,
       likesCount: response.Likes || 0,
       comments: response.comments
         ? _.map(response.comments, function (comment) {
-            return new CommentModel(comment); // Convert comments to CommentModel instances
+            return new CommentModel(comment);
           })
         : [],
     };
