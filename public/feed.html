@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Social Media Feed</title>
+    <link rel="stylesheet" href="css/feed.css" />
+    <style>
+      #header {
+        background-color: #faffe4;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0;
+        width: 100%;
+        height: 40px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <h1>PIXL</h1>
+    </div>
+    <div id="app">
+      <div id="user-profile">
+        <div id="upload-photo">
+          <h1>UPLOAD PHOTO</h1>
+          <form id="upload-form">
+            <input type="file" id="photo" name="photo" accept="image/*" />
+            <button type="submit">Upload Photo</button>
+          </form>
+        </div>
+      </div>
+      <div id="feed">
+        <div id="posts">
+          <h1>POSTS GOES HERE</h1>
+        </div>
+      </div>
+      <div id="courses">
+        <h1>COURSES GOES HERE</h1>
+        <!-- Underscore template for a single course -->
+        <script type="text/template" id="course-template">
+          <div class="course">
+            <h4><%= courseName %></h4>
+            <img src="<%= Image %>"></img>
+            <p><%= courseDescription %></p>
+            <p><%= coursePrice %></p>
+            <button class="enroll" href='<%courseLink%>'>Enroll</button>
+          </div>
+        </script>
+        <script>
+          // Initialize the CoursesView when the document is ready
+          $(document).ready(function () {
+            new CoursesView();
+          });
+        </script>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.1/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.4.0/backbone-min.js"></script>
+    <script src="js/models/ProfileModel.js"></script>
+    <script src="js/models/PostModel.js"></script>
+    <script src="js/models/CommentModel.js"></script>
+    <script src="js/models/CourseModel.js"></script>
+    <script src="js/collections/PostsCollection.js"></script>
+    <script src="js/collections/CourseCollection.js"></script>
+    <script src="js/UserProfile.js"></script>
+    <script src="js/PostView.js"></script>
+    <script src="js/CommentView.js"></script>
+    <!--<script src="js/views/PostsView.js"></script>-->
+    <script src="js/CoursesView.js"></script>
+    <script src="js/CourseView.js"></script>
+    <script src="js/views/UploadPhotoView.js"></script>
+    <script src="js/routers/AppRouter.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

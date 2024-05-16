@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@mui/material@5.2.3/dist/material.min.css"
+    />
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
+
+  <body>
+    <div class="login-container">
+      <div class="image-column">
+        <img src="img/login_image.jpg" alt="Login Image" />
+      </div>
+      <div class="form-column">
+        <form id="login-form">
+          <h2>Login to Pixl</h2>
+
+          <div class="input-field">
+            <label for="username">Username or Email</label>
+            <input
+              type="text"
+              id="username"
+              placeholder="Username or Email"
+              required
+            />
+          </div>
+
+          <div class="input-field">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Password"
+              required
+            />
+          </div>
+                   
+          <div class="btn-container">
+            <button type="submit">Login</button>
+          </div>
+          <a href="#">Forgot Password?</a>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@mui/material@5.2.3/dist/material.min.js"></script>
+    <script src="js/models/LoginModel.js"></script>
+    <script src="js/login.js"></script>
+  </body>
+</html>

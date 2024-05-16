@@ -1,0 +1,44 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+#app {
+  display: flex;
+  justify-content: space-between;
+}
+
+#user-profile,
+#feed,
+#courses {
+  width: 30%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+#user-profile {
+  border: 1px solid #ccc;
+}
+
+#feed {
+  border: 1px solid #ccc;
+}
+
+#courses {
+  border: 1px solid #ccc;
+}
+
+.user-info,
+.post,
+.course {
+  margin-bottom: 20px;
+}
+
+.logout-button {
+  margin-top: 10px;
+  cursor: pointer;
+  color: red;
+}
+
+#upload-photo {
+  margin-bottom: 20px;
+}
