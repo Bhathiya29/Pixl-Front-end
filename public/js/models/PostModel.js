@@ -7,7 +7,7 @@ var PostModel = Backbone.Model.extend({
     Image: "",
     Date: "",
     Likes: 0,
-    Comments: [], // Array of CommentModel objects
+    comments: [], // Array of CommentModel objects
   },
 
   parse: function (response) {
@@ -17,11 +17,7 @@ var PostModel = Backbone.Model.extend({
       caption: response.Caption,
       imageUrl: response.Image,
       likesCount: response.Likes || 0,
-      comments: response.comments
-        ? _.map(response.comments, function (comment) {
-            return new CommentModel(comment);
-          })
-        : [],
+      comments: response.comments || [], // Ensure comments is always an array
     };
   },
 });
