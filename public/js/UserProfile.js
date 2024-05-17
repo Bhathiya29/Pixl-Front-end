@@ -1,12 +1,19 @@
 var UserProfile = Backbone.View.extend({
   el: "#user-profile",
   template: _.template(`
-        <div class="user-info">
-            <img src="<%= profilePicture %>" alt="<%= username %>'s profile picture" />
-            <p><%= username %></p>
-            <p><%= fullName %> </p>
-            <button class="logout-button">Logout</button>
-        </div>
+  <div class="user-info card center-align">
+  <div class="card-image">
+      <img class="profile-picture circle" src="<%= profilePicture %>" alt="<%= username %>" />
+  </div>
+  <div class="card-content">
+      <p class="full-name"><b><%= fullName %></b></p>
+      <p class="username"><b><i>@<%= username %></i></b></p>
+      <p class ="bio"><%=bio%></p>
+  </div>
+  <div class="card-action">
+      <button class="btn waves-effect waves-light logout-button">Logout</button>
+  </div>
+</div>
     `),
   events: {
     "click .logout-button": "logout",
@@ -41,11 +48,15 @@ var UserProfile = Backbone.View.extend({
     this.$el.html(this.template(this.model.toJSON()));
     fullName = this.model.get("fullName");
     profilePicture = this.model.get("profilePicture");
+    bio = this.model.get("bio");
     return this;
   },
 
   logout: function () {
     alert("Logout button clicked");
     // Add logout logic here
+    localStorage.removeItem("userName");
+    localStorage.removeItem("userId");
+    window.location.href = "/login";
   },
 });

@@ -17,7 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
         email: document.getElementById("email").value,
         username: document.getElementById("username").value,
         password: document.getElementById("password").value,
+        bio: document.getElementById("bio").value,
         dob: document.getElementById("dob").value,
+        profilepicture: document.getElementById("profilepicture").value,
       };
 
       // Instantiate UserModel

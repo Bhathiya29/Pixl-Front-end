@@ -5,6 +5,7 @@ var ProfileModel = Backbone.Model.extend({
     profilePicture: "",
     firstName: "",
     lastName: "",
+    bio: "",
   },
 
   // Parse the response to handle the data structure
@@ -15,6 +16,7 @@ var ProfileModel = Backbone.Model.extend({
       firstName: response.firstname,
       lastName: response.lastname,
       fullName: response.firstname + " " + response.lastname,
+      bio: response.bio,
     };
   },
 });

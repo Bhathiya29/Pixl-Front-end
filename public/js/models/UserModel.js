@@ -7,7 +7,9 @@ function UserModel(data) {
   this.email = data.email;
   this.username = data.username;
   this.password = data.password;
+  this.bio = data.bio;
   this.dob = data.dob;
+  this.profilepicture = data.profilepicture;
 
   // Add any validation logic here
   console.log("Gets hit 3");
@@ -41,7 +43,9 @@ function UserModel(data) {
       email: this.email,
       username: this.username,
       password: this.password,
+      bio: this.bio,
       dob: this.dob,
+      profilepicture: this.profilepicture,
     };
   };
 }

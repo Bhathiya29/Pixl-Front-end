@@ -128,3 +128,36 @@ styleSheet.innerText = styles;
 document.head.appendChild(styleSheet);
 */
 var createPostView = new CreatePostView();
+
+/* 
+
+var CreatePostView = Backbone.View.extend({
+  el: "#create-post-container",
+  template: _.template(`
+  <button id="create-post-button">Create Post</button>
+  <div id="post-popup" class="post-popup hidden">
+    <div class="popup-content">
+      <h5>Create a New Post</h5>
+      <form id="new-post-form">
+        <input type="text" name="url" placeholder="Enter image URL" required>
+        <textarea name="caption" placeholder="Write a caption..." required></textarea>
+        <button type="submit">Post</button>
+      </form>
+    </div>
+  </div>
+`),
+
+  events: {
+    "click #create-post-button": "showPopup",
+    "submit #new-post-form": "createPost",
+    "click .popup-content": "stopPropagation",
+    "click #post-popup": "hidePopup",
+  },
+
+
+
+
+
+
+
+*/

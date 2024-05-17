@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <title>Social Media Feed</title>
     <link rel="stylesheet" href="css/feed.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
     <style>
       #header {
         background-color: #faffe4;
@@ -12,16 +20,19 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 10px 0;
+        padding: 12px 0;
+        margin: 0;
         width: 100%;
-        height: 40px;
+        height: 60px;
         border: 1px solid black;
       }
     </style>
   </head>
   <body>
     <div id="header">
-      <h1>PIXL</h1>
+      <h1 style="font-size: 35px; font-weight: bold; font-family: Futura" f>
+        PIXL
+      </h1>
     </div>
     <div id="app">
       <div id="user-profile">
@@ -35,7 +46,7 @@
       </div>
       <div id="feed">
         <div id="posts">
-          <h1>POSTS GOES HERE</h1>
+          <h5>User Feed</h5>
           <div id="posts-container"></div>
         </div>
         <div id="create-post-container"></div>
@@ -44,12 +55,19 @@
         <h1>COURSES GOES HERE</h1>
         <!-- Underscore template for a single course -->
         <script type="text/template" id="course-template">
-          <div class="course">
-            <h4><%= courseName %></h4>
-            <img src="<%= Image %>"></img>
-            <p><%= courseDescription %></p>
-            <p><%= coursePrice %></p>
-            <button class="enroll" href='<%courseLink%>'>Enroll</button>
+          <div class="course card">
+                <div class="image-courses">
+                  <img src="<%= Image %>" alt="<%= courseName %>" style="max-width: 100%; max-height: 100%;">
+                </div>
+              <div class="card-content">
+                  <h6 class="course-name"><%= courseName %></h6>
+                  <p class="course-description"><i><%= courseDescription %></i></p>
+
+              </div>
+              <div class="card-action card-action-flex">
+                <p class="course-price">$<%= coursePrice %></p>
+                  <a class="btn waves-effect waves-light enroll" href="<%= courseLink %>" target="_blank">Enroll</a>
+              </div>
           </div>
         </script>
         <script>

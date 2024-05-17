@@ -13,7 +13,11 @@ var CoursesView = Backbone.View.extend({
     });
   },
   render: function () {
-    this.$el.html("<h1>Courses</h1>");
+    this.$el.html(`
+      <div class="course-header">
+        <h5>Learn Skills</h5>
+      </div>
+    `);
     this.collection.each(function (courses) {
       var courseView = new CourseView({ model: courses });
       this.$el.append(courseView.render().el);

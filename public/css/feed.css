@@ -10,9 +10,17 @@ body {
 #user-profile,
 #feed,
 #courses {
-  width: 30%;
+  width: 25%;
   padding: 10px;
   box-sizing: border-box;
+}
+
+#feed {
+  width: 45%;
+}
+
+#courses {
+  width: 30%;
 }
 
 #user-profile {
@@ -41,4 +49,189 @@ body {
 
 #upload-photo {
   margin-bottom: 20px;
+}
+.card-image {
+  width: 60%;
+  height: 60%;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.full-name {
+  font-size: 20px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+.center-align {
+  text-align: center;
+}
+
+#courses {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.course {
+  width: 400px;
+}
+
+.course-price {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+.course-name {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.course-description {
+  font-size: 16px;
+  text-align: center;
+}
+.card-action-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.course-header {
+  background-color: rgb(
+    253,
+    255,
+    194
+  ); /* Adjust the alpha value to control the transparency */
+  padding: 10px;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  border: 2px solid #000000;
+  backdrop-filter: blur(
+    10px
+  ); /* Apply a blur effect to create a glass-like appearance */
+}
+
+.course-header h5 {
+  margin: 0; /* No margin for the heading */
+  font-weight: bold; /* Bold text */
+  font-family: Futura;
+}
+
+#courses {
+  background-color: #171a2c;
+}
+/* Custom styles */
+#feed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#posts {
+  width: 100%;
+  max-width: 600px;
+}
+
+.post.card {
+  margin-bottom: 20px;
+}
+
+.post-username,
+.post-caption {
+  margin: 0 0 10px 0;
+}
+
+.post-image {
+  width: 100%;
+  height: auto;
+}
+
+.card-action {
+  padding: 10px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.likes {
+  display: flex;
+  align-items: center;
+}
+
+.likes-count {
+  margin-right: 10px;
+}
+
+.like-button {
+  display: flex;
+  align-items: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.like-button .material-icons {
+  font-size: 24px;
+  color: #007bff;
+}
+
+.comments .comment {
+  border-top: 1px solid #e0e0e0;
+  padding: 10px 0;
+}
+
+.new-comment {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.new-comment .comment-input {
+  flex: 1;
+  padding: 5px;
+  margin-right: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+.new-comment button {
+  padding: 5px 10px;
+}
+
+#create-post-container {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+}
+
+#new-post-form {
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+#new-post-form input,
+#new-post-form textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+#new-post-form button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#new-post-form button:hover {
+  background: #0056b3;
 }
