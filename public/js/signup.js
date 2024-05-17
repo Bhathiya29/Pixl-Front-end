@@ -22,6 +22,22 @@ document.addEventListener("DOMContentLoaded", function () {
         profilepicture: document.getElementById("profilepicture").value,
       };
 
+      // Validate the email
+      var email = formData.email;
+      if (!email || !/\S+@\S+\.\S+/.test(email)) {
+        alert("Invalid email address.");
+        //clear all fields
+        document.getElementById("firstname").value = "";
+        document.getElementById("lastname").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+        document.getElementById("bio").value = "";
+        document.getElementById("dob").value = "";
+        document.getElementById("profilepicture").value = "";
+        return;
+      }
+
       // Instantiate UserModel
       console.log("Htting here2");
       //var user = new window.UserModel(formData);
@@ -56,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((response) => {
           console.log(response.statusCode);
           if (response.ok) {
-            alert("Signup successful!"); // Success message
+            //alert("Signup successful!"); // Success message
             return response.json(); // Parse response JSON
           } else {
             throw new Error("Signup failed."); // Error message
