@@ -10,13 +10,13 @@ body {
 #user-profile,
 #feed,
 #courses {
-  width: 25%;
+  width: 30%;
   padding: 10px;
   box-sizing: border-box;
 }
 
 #feed {
-  width: 45%;
+  width: 40%;
 }
 
 #courses {
@@ -35,16 +35,59 @@ body {
   border: 1px solid #ccc;
 }
 
-.user-info,
-.post,
-.course {
+.post {
   margin-bottom: 20px;
 }
 
-.logout-button {
-  margin-top: 10px;
-  cursor: pointer;
-  color: red;
+.course {
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+/* USER PROFILE STYLING */
+.user-info.card {
+  border: 2px solid #050032; /* Add a subtle border */
+  border-radius: 12px; /* Add rounded corners */
+  overflow: hidden; /* Ensure content doesn't overflow */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1); /* Add a soft shadow */
+  background-color: #ffffff; /* Set background color */
+}
+.user-info.card-content {
+  padding: 20px; /* Add padding for content */
+}
+.user-info.full-name {
+  font-size: 18px; /* Adjust font size */
+  margin: 0; /* Remove margin */
+}
+
+.user-info.username {
+  font-size: 14px; /* Adjust font size */
+  margin: 5px 0; /* Add margin */
+}
+
+.user-info.bio {
+  font-size: 14px; /* Adjust font size */
+  margin-top: 10px; /* Add margin */
+}
+
+.user-info.card-action {
+  padding: 10px 20px; /* Add padding for action button */
+  text-align: center; /* Center-align action button */
+}
+
+.user-info .logout-button {
+  background-color: #007bff; /* Set button background color to blue */
+  color: #fff; /* Set text color to white */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Add rounded corners */
+
+  cursor: pointer; /* Add cursor pointer */
+  transition: background-color 0.3s; /* Add transition effect */
+  margin: 10px;
+}
+
+.user-info .logout-button:hover {
+  background-color: #0056b3; /* Darken button color on hover */
 }
 
 #upload-photo {
@@ -70,11 +113,16 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
 }
 
+#courses .course.card {
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
 .course {
   width: 400px;
+  max-width: 400px;
 }
 
 .course-price {
@@ -97,61 +145,68 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-.course-header {
-  background-color: rgb(
-    253,
-    255,
-    194
-  ); /* Adjust the alpha value to control the transparency */
-  padding: 10px;
-  margin: 0;
-  width: 100%;
-  text-align: center;
-  border: 2px solid #000000;
-  backdrop-filter: blur(
-    10px
-  ); /* Apply a blur effect to create a glass-like appearance */
-}
 
 .course-header h5 {
-  margin: 0; /* No margin for the heading */
   font-weight: bold; /* Bold text */
   font-family: Futura;
 }
 
-#courses {
-  background-color: #171a2c;
+.course-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
 /* Custom styles */
 #feed {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
 }
 
 #posts {
   width: 100%;
-  max-width: 600px;
+  max-width: 500px;
 }
 
 .post.card {
   margin-bottom: 20px;
 }
 
-.post-username,
-.post-caption {
+.post-username {
   margin: 0 0 10px 0;
+}
+
+.post-caption {
+  margin: 10px 0 10px 0;
+
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  font-weight: 400;
 }
 
 .post-image {
   width: 100%;
   height: auto;
+  max-width: 400px;
+  max-height: 400px;
+  object-fit: cover;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.social-post {
+  border: 1px solid #000000;
+  background-color: #fefcf3;
+  padding: 20px;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
 }
 
 .card-action {
   padding: 10px;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid #000000;
 }
 
 .likes {
@@ -164,27 +219,29 @@ body {
 }
 
 .like-button {
-  display: flex;
-  align-items: center;
-  border: none;
+  border: 1px solid #000000;
   background: none;
   cursor: pointer;
 }
 
 .like-button .material-icons {
-  font-size: 24px;
+  font-size: 25px;
   color: #007bff;
 }
 
 .comments .comment {
-  border-top: 1px solid #e0e0e0;
-  padding: 10px 0;
+  border: 1px solid #e0e0e0;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .new-comment {
   display: flex;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 2px;
 }
 
 .new-comment .comment-input {
@@ -192,21 +249,30 @@ body {
   padding: 5px;
   margin-right: 10px;
   border: 1px solid #e0e0e0;
-  border-radius: 4px;
 }
 
 .new-comment button {
-  padding: 5px 10px;
+  margin: 5px;
+  color: #ffffff;
+  background: #007bff;
+  font-weight: bold;
+}
+
+.new-comment button:hover {
+  background: #0056b3;
 }
 
 #create-post-container {
   width: 100%;
   max-width: 600px;
   margin-top: 20px;
+  border: 2px solid #000d25;
+
+  border-radius: 12px;
 }
 
 #new-post-form {
-  background: #fff;
+  background: #fefcf3;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
@@ -217,7 +283,7 @@ body {
   width: 100%;
   margin-bottom: 10px;
   padding: 10px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #192e47;
   border-radius: 4px;
 }
 
@@ -234,4 +300,10 @@ body {
 
 #new-post-form button:hover {
   background: #0056b3;
+}
+
+.separator {
+  border: none;
+  border-top: 4px solid #000; /* Adjust thickness and color as needed */
+  margin: 20px 0; /* Adjust margin as needed */
 }

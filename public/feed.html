@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Social Media Feed</title>
+    <title>PIXL - Feed</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="css/feed.css" />
     <link
       rel="stylesheet"
@@ -29,6 +30,46 @@
     </style>
   </head>
   <body>
+    <!-- Scroll to top button -->
+    <script>
+      window.addEventListener("scroll", function() {
+      var scrollUpBtn = document.querySelector(".scroll-up-btn");
+      if (window.scrollY > 0) {
+      scrollUpBtn.style.display = "block";
+      scrollUpBtn.style.zIndex = "9999"; // Set a higher z-index value
+      } else {
+      scrollUpBtn.style.display = "none";
+      }
+      });
+    </script>
+    <style>
+      .scroll-up-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: none;
+      background-color: #FFF8EA;
+      color: rgb(0, 0, 0);
+      text-align: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 9999; // Set a higher z-index value
+      }
+    </style>
+    <div class="scroll-up-btn" onclick="scrollToTop()">
+      <i class="material-icons">keyboard_arrow_up</i>
+    </div>
+    <script>
+      function scrollToTop() {
+      window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+      });
+      }
+    </script>
+    <!--Scroll to top button functions ends-->
     <div id="header">
       <h1 style="font-size: 35px; font-weight: bold; font-family: Futura" f>
         PIXL
@@ -46,23 +87,22 @@
       </div>
       <div id="feed">
         <div id="posts">
-          <h5>User Feed</h5>
+          </h5>
+          <div id="create-post-container"></div>
+          <hr class="seperator" style="margin-top: 10px" />
           <div id="posts-container"></div>
         </div>
-        <div id="create-post-container"></div>
       </div>
       <div id="courses">
-        <h1>COURSES GOES HERE</h1>
         <!-- Underscore template for a single course -->
         <script type="text/template" id="course-template">
           <div class="course card">
                 <div class="image-courses">
-                  <img src="<%= Image %>" alt="<%= courseName %>" style="max-width: 100%; max-height: 100%;">
+                  <img src="<%= Image %>" alt="<%= courseName %>" style="width: 100%; height: 100%;">
                 </div>
               <div class="card-content">
                   <h6 class="course-name"><%= courseName %></h6>
                   <p class="course-description"><i><%= courseDescription %></i></p>
-
               </div>
               <div class="card-action card-action-flex">
                 <p class="course-price">$<%= coursePrice %></p>
@@ -78,6 +118,7 @@
         </script>
       </div>
     </div>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.1/underscore-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.4.0/backbone-min.js"></script>
@@ -90,13 +131,11 @@
     <script src="js/UserProfile.js"></script>
     <script src="js/PostView.js"></script>
     <script src="js/PostsView.js"></script>
-    <script src="js/CommentView.js"></script>
     <script src="js/CreatePostView.js"></script>
     <!--<script src="js/views/PostsView.js"></script>-->
     <script src="js/CoursesView.js"></script>
     <script src="js/CourseView.js"></script>
-    <script src="js/views/UploadPhotoView.js"></script>
-    <script src="js/routers/AppRouter.js"></script>
+    <!--<script src="js/routers/AppRouter.js"></script>-->
     <script src="js/app.js"></script>
   </body>
 </html>

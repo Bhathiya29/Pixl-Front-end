@@ -1,7 +1,7 @@
 var UserProfile = Backbone.View.extend({
   el: "#user-profile",
   template: _.template(`
-  <div class="user-info card center-align">
+<div class="user-info card center-align">
   <div class="card-image">
       <img class="profile-picture circle" src="<%= profilePicture %>" alt="<%= username %>" />
   </div>
@@ -53,10 +53,10 @@ var UserProfile = Backbone.View.extend({
   },
 
   logout: function () {
-    alert("Logout button clicked");
     // Add logout logic here
     localStorage.removeItem("userName");
     localStorage.removeItem("userId");
     window.location.href = "/login";
+    window.history.pushState(null, "", "/login");
   },
 });

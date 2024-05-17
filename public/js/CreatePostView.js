@@ -2,7 +2,8 @@ var CreatePostView = Backbone.View.extend({
   el: "#create-post-container",
   template: _.template(`
   <form id="new-post-form">
-      <input type="text" name="image" placeholder="Enter image URL" required>
+  <h5 style="font-size:20px; font-weight:bold; margin:0;">Create a New Post on PIXL</h5>
+      <textarea name="image" placeholder="Enter image URL" required></textarea>
       <textarea name="caption" placeholder="Write a caption..." required></textarea>
       <button type="submit">Create Post</button>
     </form>
@@ -37,6 +38,11 @@ var CreatePostView = Backbone.View.extend({
     var caption = formData.get("caption");
     var imageFile = formData.get("image");
 
+    if (!caption || !imageFile) {
+      alert("Caption and image url are required!");
+      return;
+    }
+
     var userId = localStorage.getItem("userId");
     var userName = localStorage.getItem("userName");
 
@@ -69,7 +75,7 @@ var CreatePostView = Backbone.View.extend({
           comments: [],
         });
 
-        postsView.collection.add(newPost);
+        postsView.collection.unshift(newPost);
         postsView.render();
         //self.hidePopup();
 

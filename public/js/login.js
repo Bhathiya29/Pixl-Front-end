@@ -56,9 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem("userId", userId);
             localStorage.setItem("userName", userName);
 
-            alert(
-              "Login successful! UserID: " + userId + ", Username: " + userName
-            ); // Success message
+            //alert("Login successful! UserID: " + userId + ", Username: " + userName); // Success message
             // Redirect to dashboard or any other page after successful login
             window.location.href = "/feed";
           } else {
@@ -69,7 +67,9 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch((error) => {
           console.error("Error:", error);
-          alert("Login failed. Please try again."); // Error message
+          alert("Login failed. Please check Credentials."); // Error message
+          document.getElementById("username").value = ""; // Clear username field
+          document.getElementById("password").value = ""; // Clear password field
         });
     });
 });

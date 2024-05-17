@@ -2,23 +2,37 @@ var PostView = Backbone.View.extend({
   tagName: "div",
   className: "post",
   template: _.template(`
-    <h4>Posted by: <%= username %></h4>
-    <p><%= caption %></p>
-    <img src="<%= imageUrl %>" alt="Post image" />
-    <div class="likes">
-      <span class="likes-count"><%= likesCount %> Likes</span>
-      <button class="like-button">Like</button>
-    </div>
-    <div class="comments">
-    <% _.each(comments, function(comment) { %>
-      <p><%= comment %></p>
-    <% }); %>
-      <form class="new-comment">
-        <input type="text" name="commentText" placeholder="Add a comment..." />
-        <button type="submit">Post Comment</button>
-      </form>
-    </div>
-  `),
+      <div class = "social-post">
+        <div class="card-content">
+          <h5 class="post-username" style="font-size:20px; font-weight:bold">Posted by: @<%= username %></h5>
+          <div class= image-container><img class="post-image" src="<%= imageUrl %>" alt="Post image" />
+          </div>
+          
+          <p class="post-caption" style="font-size:18px"><i><%= caption %></i></p>
+        </div>
+        <div class="card-action">
+          <div class="likes">
+            <span class="likes-count" style="font-size:18px"><%= likesCount %></span>Likes
+            <button class="like-button btn-flat">
+            <i class="material-icons">thumb_up</i> 
+            </button>
+            
+          </div>
+          <div class="comments">
+          <h6><b>Comments</b></h6>
+            <% _.each(comments, function(comment) { %>
+              <div class="comment">
+                <p><%= comment %></p>
+              </div>
+            <% }); %>
+            <form class="new-comment">
+              <input type="text" name="commentText" placeholder="Add a comment..." class="comment-input"/>
+              <button type="submit" class="btn waves-effect waves-light">Comment</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      `),
   events: {
     "click .like-button": "likePost",
     "submit .new-comment": "postComment",
