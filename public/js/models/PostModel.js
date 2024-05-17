@@ -17,7 +17,7 @@ var PostModel = Backbone.Model.extend({
       caption: response.Caption,
       imageUrl: response.Image,
       likesCount: response.Likes || 0,
-      comments: response.comments || [], // Ensure comments is always an array
+      comments: response.comments || [], //To make comments always an array
     };
   },
 });

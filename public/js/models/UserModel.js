@@ -1,6 +1,5 @@
 // userModel.js
 
-// usermodel.js
 function UserModel(data) {
   this.firstname = data.firstname;
   this.lastname = data.lastname;
@@ -11,8 +10,6 @@ function UserModel(data) {
   this.dob = data.dob;
   this.profilepicture = data.profilepicture;
 
-  // Add any validation logic here
-  console.log("Gets hit 3");
   this.isValid = function () {
     var errors = [];
     if (!this.firstname.trim()) {
@@ -27,12 +24,10 @@ function UserModel(data) {
 
     // Check if there are any errors
     if (errors.length > 0) {
-      // Set a property to store validation errors
       this.validationError = errors.join("\n"); // Join errors with newlines
-      return false; // Return false if validation fails
+      return false;
     }
 
-    // If no errors, return true (validation successful)
     return true;
   };
 
@@ -49,40 +44,3 @@ function UserModel(data) {
     };
   };
 }
-
-//module.exports = UserModel; // Export the class for use in other files
-
-/*
-import Backbone from "backbone";
-
-var UserModel = Backbone.Model.extend({
-  defaults: {
-    firstname: "",
-    lastname: "",
-    email: "",
-    username: "",
-    password: "",
-    dob: "",
-  },
-  validate: function (attrs, options) {
-    var errors = [];
-    if (!attrs.firstname.trim()) {
-      errors.push("First name is required.");
-    }
-    if (!attrs.lastname.trim()) {
-      errors.push("Last name is required.");
-    }
-    if (!attrs.email.trim()) {
-      errors.push("Email is required.");
-    }
-    // Add more validations as needed
-    if (errors.length > 0) {
-      return errors;
-    }
-  },
-});
-
-// Export UserModel
-//export default UserModel;
-window.UserModel = UserModel;
-*/

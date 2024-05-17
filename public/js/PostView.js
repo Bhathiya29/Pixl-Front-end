@@ -43,11 +43,7 @@ var PostView = Backbone.View.extend({
   },
 
   likePost: function () {
-    //var newLikesCount = this.model.get("likesCount") + 1;
-    //this.model.set("likesCount", newLikesCount);
-    //this.model.set("likesCount", this.model.get("likesCount") + 1);
     console.log("Updating count locally");
-    //console.log("Like Method called");
     var likeData = {
       postId: this.model.get("id"),
     };
@@ -57,23 +53,16 @@ var PostView = Backbone.View.extend({
     $.ajax({
       type: "POST",
       url: `http://localhost:8000/api/like?postId=${likeData.postId}`,
-      contentType: "application/json", // Optional if the server expects JSON
-      data: JSON.stringify(likeData), // Optional if sending data as JSON
+      contentType: "application/json", // As server expects JSON
+      data: JSON.stringify(likeData),
       success: function (response) {
-        console.log("Like updated successfully:", response);
-
-        // Update the model's likes count with the server response (if provided)
+        // Update the model's likes count with the server response
         if (response.Likes !== undefined) {
           model.set("likesCount", response.Likes);
         }
-
-        // Trigger a custom event to notify the view about the like update (optional)
-        //this.trigger("like:updated", response); // Pass the response data
       },
       error: function (xhr, status, error) {
         console.error("Error updating like:", error);
-        // Handle errors (e.g., display error message to the user)
-        // You can potentially revert the local likes count update here (if done earlier)
       },
     });
 

@@ -1,5 +1,4 @@
 // signup.js
-//const UserModel = require("../models/UserModel");
 
 document.addEventListener("DOMContentLoaded", function () {
   // Handle form submission
@@ -40,11 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Instantiate UserModel
       console.log("Htting here2");
-      //var user = new window.UserModel(formData);
       var user = new UserModel(formData); // Now UserModel is defined
-
-      // Validate the model
-      //var errors = user.validate();
 
       // Validate the model
       if (!user.isValid()) {
@@ -53,16 +48,8 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      /*
-      if (errors) {
-        // Display validation errors
-        alert(errors.join("\n"));
-        return;
-      }*/
-
       // Send AJAX request to backend
       fetch("http://localhost:8000/api/signup", {
-        //mode: "no-cors",
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -72,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((response) => {
           console.log(response.statusCode);
           if (response.ok) {
-            //alert("Signup successful!"); // Success message
             return response.json(); // Parse response JSON
           } else {
             throw new Error("Signup failed."); // Error message
@@ -80,7 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .then((data) => {
           if (data.message === "Signup successful") {
-            // Handle response data (if needed)
             console.log(data);
             alert("Signup successful!"); // Success message
             // Redirect to login page or any other page

@@ -22,13 +22,11 @@ var UserProfile = Backbone.View.extend({
   initialize: function () {
     this.model = new ProfileModel();
     this.listenTo(this.model, "sync", this.render);
-    //this.fetchUserData();
   },
 
   fetchUserData: function () {
     var userName = localStorage.getItem("userName");
     var userId = localStorage.getItem("userId");
-    //var self = this;
 
     console.log("Fetching user data for user: " + userName);
 
@@ -53,7 +51,6 @@ var UserProfile = Backbone.View.extend({
   },
 
   logout: function () {
-    // Add logout logic here
     localStorage.removeItem("userName");
     localStorage.removeItem("userId");
     window.location.href = "/login";

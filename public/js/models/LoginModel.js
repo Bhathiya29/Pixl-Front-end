@@ -4,7 +4,6 @@ function LoginModel(data) {
   this.username = data.username;
   this.password = data.password;
 
-  // Add any validation logic here
   this.isValid = function () {
     var errors = [];
     if (!this.username.trim()) {
@@ -14,14 +13,12 @@ function LoginModel(data) {
       errors.push("Password is required.");
     }
 
-    // Check if there are any errors
+    // Checking if there are any errors
     if (errors.length > 0) {
-      // Set a property to store validation errors
+      // Setting a property to store validation errors
       this.validationError = errors.join("\n"); // Join errors with newlines
       return false; // Return false if validation fails
     }
-
-    // If no errors, return true (validation successful)
     return true;
   };
 
@@ -32,5 +29,3 @@ function LoginModel(data) {
     };
   };
 }
-
-//module.exports = LoginModel;

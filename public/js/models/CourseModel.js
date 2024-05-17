@@ -9,7 +9,6 @@ var CourseModel = Backbone.Model.extend({
   },
   toJSON: function () {
     var data = _.clone(this.attributes);
-    // You can add custom logic here to format specific attributes for JSON
     return data;
   },
 });

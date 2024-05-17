@@ -1,5 +1,4 @@
 // login.js
-//const LoginModel = require("../models/LoginModel"); // Assuming LoginModel exists
 
 document.addEventListener("DOMContentLoaded", function () {
   // Handle form submission
@@ -16,11 +15,9 @@ document.addEventListener("DOMContentLoaded", function () {
         password: document.getElementById("password").value,
       };
 
-      // Instantiate LoginModel (Assuming LoginModel exists)
+      // Instantiate LoginModel
       console.log("Hitting here2");
-      var user = new LoginModel(formData); // Update with your LoginModel
-
-      // Validate the model (if needed) - Implement validation logic in LoginModel
+      var user = new LoginModel(formData);
 
       if (!user.isValid()) {
         // Display validation errors
@@ -30,8 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Send AJAX request to backend
       fetch("http://localhost:8000/api/login", {
-        // Replace with your login API endpoint
-        //mode: "no-cors",
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -47,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         })
         .then((data) => {
-          // Handle response data (e.g., successful login, redirect)
+          // Handling response data
           if (data && data.message === "Login successful") {
             const userId = data.userId;
             const userName = data.userName;
@@ -56,14 +51,11 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem("userId", userId);
             localStorage.setItem("userName", userName);
 
-            //alert("Login successful! UserID: " + userId + ", Username: " + userName); // Success message
-            // Redirect to dashboard or any other page after successful login
+            // Redirect to feed after successful login
             window.location.href = "/feed";
           } else {
             throw new Error(data.error || "Invalid username or password."); // Error message for invalid credentials
           }
-
-          // Redirect to dashboard or any other page after successful login
         })
         .catch((error) => {
           console.error("Error:", error);
