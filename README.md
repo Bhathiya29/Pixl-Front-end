@@ -1,0 +1,1 @@
+This Repository is for the development of the coursework specification of module - Advanced Server Side Web Programming This project implements a Social Media Application for Photographers This is the front-end of the application built using Backbone.js
