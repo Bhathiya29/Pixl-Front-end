@@ -14,7 +14,7 @@ var CoursesView = Backbone.View.extend({
   },
   render: function () {
     this.$el.html(`
-      <div class="course-header">
+      <div class="courses">
         <h5>Learn Skills</h5>
       </div>
     `);

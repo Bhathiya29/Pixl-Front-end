@@ -8,8 +8,7 @@ body {
 }
 
 #user-profile,
-#feed,
-#courses {
+#feed {
   width: 30%;
   padding: 10px;
   box-sizing: border-box;
@@ -21,6 +20,27 @@ body {
 
 #courses {
   width: 30%;
+  margin: 10px auto; /* Center horizontally */
+  box-sizing: border-box;
+  border: 1px solid #ffffff;
+  justify-content: center;
+}
+
+.courses h5 {
+  font-weight: bold; /* Bold text */
+  font-family: Futura;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;
+  margin: 10px; /* Remove bottom margin */
+}
+
+.course {
+  width: 400px;
+  max-width: 400px;
+  max-height: 480px;
+  margin: 50px;
+  padding: 0;
 }
 
 #user-profile {
@@ -31,17 +51,8 @@ body {
   border: 1px solid #ccc;
 }
 
-#courses {
-  border: 1px solid #ccc;
-}
-
 .post {
   margin-bottom: 20px;
-}
-
-.course {
-  margin-bottom: 10px;
-  margin-top: 0;
 }
 
 /* USER PROFILE STYLING */
@@ -109,22 +120,6 @@ body {
   text-align: center;
 }
 
-#courses {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-#courses .course.card {
-  max-width: 100%;
-  max-height: 100%;
-  overflow: hidden;
-}
-.course {
-  width: 400px;
-  max-width: 400px;
-}
-
 .course-price {
   font-size: 20px;
   font-weight: bold;
@@ -146,15 +141,8 @@ body {
   align-items: center;
 }
 
-.course-header h5 {
-  font-weight: bold; /* Bold text */
-  font-family: Futura;
-}
-
 .course-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  max-height: 0px;
 }
 
 /* Custom styles */

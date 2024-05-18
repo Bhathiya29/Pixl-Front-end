@@ -78,10 +78,7 @@
     <div id="app">
       <div id="user-profile">
         <div id="upload-photo">
-          <h1>UPLOAD PHOTO</h1>
           <form id="upload-form">
-            <input type="file" id="photo" name="photo" accept="image/*" />
-            <button type="submit">Upload Photo</button>
           </form>
         </div>
       </div>
@@ -98,7 +95,7 @@
         <script type="text/template" id="course-template">
           <div class="course card">
                 <div class="image-courses">
-                  <img src="<%= Image %>" alt="<%= courseName %>" style="width: 100%; height: 100%;">
+                  <img src="<%= Image %>" alt="<%= courseName %>" style="width: 100%; height: auto; margin:0; pading:0">
                 </div>
               <div class="card-content">
                   <h6 class="course-name"><%= courseName %></h6>
